@@ -1,3 +1,26 @@
-# SensorGloves
+# Hardware
 
-The main repository of the SensorGlove, developed at the Institute for Robotics and Cognitive Systems at the University to Luebeck.
+Here we will present how we build our SensorGlove and provide a parts list if you want to build your own.
+
+## Parts list
+
+- microcontroller ESP32-S2
+    
+    We chose this special microcontroller, since it has build in WiFi and provides a 10-Channel ADC which is important so we can hook up all of our flexsensors to one board.
+- 2.2" flex sensors
+
+    You will need at least 8 of these for every joint.
+- 1" flex sensors
+
+    If you can get your hands on 2 of these small flex sensors for the front joints of the thumb and pinkie finger your setup will be perfect. Since these are very hard to get, get 2 more of the 2.2" flex sensors for these joints (total of 10 flex sensors).
+- Resistors
+
+    You will need 10 of those, one for each flex sensor. The resistance of them should be in the middle of the range of your flex sensors. Therefore measure the relaxed and the bend resistance of them with a multimeter.
+- Vibro Motors
+
+    You need 5 small 3.3V Vibromotors for each fingertip. 
+- Electronic parts
+
+    General parts like crimping tools, cables etc. are prerequesites.
+
+## Building Instruction
