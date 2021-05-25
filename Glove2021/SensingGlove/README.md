@@ -6,17 +6,17 @@ One Paragraph of project description goes here
 
 Overview on how to design/build sensor glove and implementation.
 
-### Prerequisities - Hardware
+### Prerequisities 
 
+#### Hardware
 All essential materials
+
+#### Software
+What things you need to install the software and how to install them
 
 ### Construction
 
 Step by step describtion
-
-### Prerequisities - Software
-
-What things you need to install the software and how to install them
 
 ### Installing 
 
