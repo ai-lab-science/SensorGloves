@@ -8,9 +8,7 @@ Download the folders and proceed as following:
 
 Download and install the [Arduino] IDE on your machine.
 
-Drag the **hardware** folder into your Arduino directory and execute the **get.py** application situated under "/hardware/espressif/esp32/tools". This should make you be able to find and programm the ESP32-S2 Board through the [Arduino] IDE.
-
-If this does not work on your machine, try to follow the examples provided [here](https://github.com/espressif/arduino-esp32/tree/master#esp32-s2-and-esp32-c3-support). This may lay in the ever updated ESP32-S2 for the [Arduino] IDE.
+Follow the examples provided [here](https://github.com/espressif/arduino-esp32/tree/master#esp32-s2-and-esp32-c3-support). Add the provided additional Boards URL in your Preferences and then install the latest ESP32 Boards through the Board Manager.
 
 ## Libraries
 
