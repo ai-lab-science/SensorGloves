@@ -20,8 +20,20 @@ It is especially important, that you use our provided version of the **Rosserial
 
 Furthermore install the **Rosserial Binaries** on your ROS workstation like [so](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup). Change the rosversion in respect to yours.
 
+Find out your workstations IP adress with:
+ifconfig
+
+Then open the bashrc file in the terminal with:
+nano .bashrc
+Then add the following dependencies and fill in your IP adress in the first row:
+export ROS_IP=yourIPHere
+export ROS_MASTER_URI=http://$ROS_IP:11311 
+export ROS_HOSTNAME=$ROS_IP
+
 ## Programm
 
 In the provided **programm** folder you find the main sketch running on the ESP32-S2 and also the selfmade libraries for the flexsensors and the vibromotors.
+
+## 
 
 [Arduino]:https://www.arduino.cc/en/software
