@@ -18,6 +18,8 @@ Within the **libraries** folder are all official libraries we used for our Senso
 
 It is especially important, that you use our provided version of the **Rosserial** library, since we had to modify it to work on the ESP32-S2.
 
+## Further ROS setup
+
 Furthermore install the **Rosserial Binaries** on your ROS workstation like [so](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup). Change the rosversion in respect to yours.
 
 Find out your workstations IP adress with:
@@ -30,10 +32,22 @@ export ROS_IP=yourIPHere
 export ROS_MASTER_URI=http://$ROS_IP:11311 
 export ROS_HOSTNAME=$ROS_IP
 
+It is important to close all terminals and reopen them now!
+
 ## Programm
 
 In the provided **programm** folder you find the main sketch running on the ESP32-S2 and also the selfmade libraries for the flexsensors and the vibromotors.
 
-## 
+## Run it
+
+Change the ssid and the password to your corresponding wifi connection in the main.ino file.
+Change the server IPAddress to your workstations IP adress that you found out earlier.
+
+Upload the main.ino file onto your ESP.
+Open a terminal:
+roscore
+
+Open a second terminal:
+rosrun rosserial_python serial_node.py tcp
 
 [Arduino]:https://www.arduino.cc/en/software
