@@ -18,7 +18,7 @@ Within the **libraries** folder are all official libraries we used for our Senso
 
 It is especially important, that you use our provided version of the **Rosserial** library, since we had to modify it to work on the ESP32-S2.
 
-Furthermore install the **Rosserial Binaries** on your ROS workstation like [so](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup).
+Furthermore install the **Rosserial Binaries** on your ROS workstation like [so](http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup). Change the rosversion in respect to yours.
 
 ## Programm
 
