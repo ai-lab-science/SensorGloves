@@ -1,3 +1,4 @@
+
 #include "libraries/FlexSensor.h"
 #include "libraries/VibroMotor.h"
 #include <Adafruit_NeoPixel.h>
@@ -24,9 +25,10 @@ IPAddress server(192, 168, 178, 100);
 const uint16_t serverPort = 11411;
 
 const int numSensors = 8;
-const int numVibros = 1;
+const int numVibros = 5;
 const int readAmount = 50;
 const int calAmount = 100;
+unsigned long myTime;
 
 FlexSensor flexSensors[numSensors];
 FlexSensor thumbSensors[2];
@@ -84,9 +86,29 @@ void vibroIndexCallBack(const std_msgs::Float32& float_msg) {
   vibroMotors[0].vibrate(float_msg.data);
 }
 
+void vibroMiddlexCallBack(const std_msgs::Float32& float_msg) {
+  vibroMotors[1].vibrate(float_msg.data);
+}
+
+void vibroRingCallBack(const std_msgs::Float32& float_msg) {
+  vibroMotors[2].vibrate(float_msg.data);
+}
+
+void vibroPinkieCallBack(const std_msgs::Float32& float_msg) {
+  vibroMotors[3].vibrate(float_msg.data);
+}
+
+void vibroThumbCallBack(const std_msgs::Float32& float_msg) {
+  vibroMotors[4].vibrate(float_msg.data);
+}
+
 ros::Subscriber<std_msgs::Float32> vibroSubscribers[numVibros] = 
 {
-  ros::Subscriber<std_msgs::Float32>("/index_finger_vibro", &vibroIndexCallBack)
+  ros::Subscriber<std_msgs::Float32>("/index_finger_vibro", &vibroIndexCallBack),
+  ros::Subscriber<std_msgs::Float32>("/middle_finger_vibro", &vibroMiddlexCallBack),
+  ros::Subscriber<std_msgs::Float32>("/ring_finger_vibro", &vibroRingCallBack),
+  ros::Subscriber<std_msgs::Float32>("/pinkie_finger_vibro", &vibroPinkieCallBack),
+  ros::Subscriber<std_msgs::Float32>("/thumb_finger_vibro", &vibroThumbCallBack)
 };
 
 void setup() {
@@ -164,7 +186,7 @@ void setup() {
   uint8_t system, gyro, accel, mag;
   system = gyro = accel = mag = 0;
   Serial.print("Wait for IMU Calibration");
-  while(!system || gyro != 3 || accel != 3 || mag != 3) {
+  /*while(!system || gyro != 3 || accel != 3 || mag != 3) {
     bno.getCalibration(&system, &gyro, &accel, &mag);
     Serial.print("Sys:");
     Serial.print(system, DEC);
@@ -193,10 +215,11 @@ void setup() {
 }
 
 void loop() {
+  myTime = millis();
   // collect sensor values
   if (nh.connected()) {
     pixels.setPixelColor(0, 0, 255, 0);
-    pixels.show(); 
+    pixels.show();
     for(int i = 0; i < numSensors; i++) {
       angles[i] = flexSensors[i].readAngle(readAmount, false);
       float_msg.data = angles[i] * M_PI / 180.0;
@@ -262,6 +285,7 @@ void loop() {
     pixels.show();
   }
   nh.spinOnce();
+  //Serial.println(1000.0/(millis()-myTime));
 }
 
 void calibrateFlexSensors(int amount) {
