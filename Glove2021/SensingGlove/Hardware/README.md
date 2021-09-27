@@ -22,5 +22,11 @@ Here we will present how we build our SensorGlove and provide a parts list if yo
 - Electronic parts
 
     General parts like crimping tools, cables etc. are prerequesites.
+- thight gloves
+
+    This will be the base for all the sensors and electronics, which will be fixed on the glove. Make sure to use a glove that fits perfectly, since additional fabric will affect the placement and measurements of the flex sensors.
+- 3D printed parts
+
+    An access to a 3D printer is also necessary.
 
 ## Building Instruction
